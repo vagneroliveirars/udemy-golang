@@ -31,16 +31,21 @@ func main() {
 	// // %+v will print out all the field names and values from john
 	// fmt.Printf("%+v", john)
 
-	// jim := person{
-	// 	firstName: "Jim",
-	// 	lastName:  "Party",
-	// 	contactInfo: contactInfo{
-	// 		email:   "jim@gmail.com",
-	// 		zipCode: 94000,
-	// 	},
-	// }
+	jim := person{
+		firstName: "Jim",
+		lastName:  "Party",
+		contactInfo: contactInfo{
+			email:   "jim@gmail.com",
+			zipCode: 94000,
+		},
+	}
 
-	// fmt.Printf("%+v", jim)
+	//jimPointer := &jim
+	//jimPointer.updateName("Jimmy")
+
+	// Pointer shortcut
+	jim.updateName("Jimmy")
+	jim.print()
 
 	alex := person{
 		firstName: "Alex",
@@ -53,6 +58,11 @@ func main() {
 
 	//alex.firstName = "Alexandre"
 	alex.print()
+
+}
+
+func (pointerToPerson *person) updateName(newFirstName string) {
+	(*pointerToPerson).firstName = newFirstName
 }
 
 func (p person) print() {

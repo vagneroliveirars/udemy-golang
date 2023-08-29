@@ -1,11 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	colors := map[string]string{
-		"red":   "#FF0000",
-		"green": "#008000",
-	}
+	// var colors map[string]string
+
+	colors := make(map[string]string)
+
+	// colors := map[string]string{
+	// 	"red":   "#FF0000",
+	// 	"green": "#008000",
+	// }
+
+	colors["white"] = "#ffffff"
+
+	delete(colors, "white")
+
 	fmt.Println(colors)
 }

@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-
 	links := []string{
 		"http://google.com",
 		"http://facebook.com",
@@ -21,8 +20,9 @@ func main() {
 		go checkLink(link, c)
 	}
 
-	fmt.Println(<-c)
-
+	for i := 0; i < len(links); i++ {
+		fmt.Println(<-c)
+	}
 }
 
 func checkLink(link string, c chan string) {
